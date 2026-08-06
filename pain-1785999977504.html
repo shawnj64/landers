@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Military Pay Gap Check</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #0f1f3d 0%, #1a3a5c 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #fff;
+  }
+  .container {
+    width: 100%;
+    max-width: 560px;
+    background: #132a4a;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .header-bar {
+    background: #0b1930;
+    padding: 14px 20px;
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #8fa8c9;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .progress-wrap {
+    padding: 20px 24px 0 24px;
+    display: none;
+  }
+  .progress-bar-bg {
+    background: rgba(255,255,255,0.1);
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    background: linear-gradient(90deg, #ffb703, #fb8500);
+    height: 100%;
+    width: 0%;
+    transition: width 0.4s ease;
+  }
+  .progress-label {
+    font-size: 12px;
+    color: #8fa8c9;
+    margin-top: 8px;
+    text-align: right;
+  }
+  .screen {
+    padding: 36px 28px 40px 28px;
+  }
+  #start-screen {
+    text-align: center;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(255,183,3,0.15);
+    color: #ffb703;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-size: 26px;
+    line-height: 1.35;
+    margin-bottom: 14px;
+    color: #ffffff;
+  }
+  .sub {
+    font-size: 15px;
+    color: #a9bdd8;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+  .start-btn {
+    background: linear-gradient(135deg, #ffb703, #fb8500);
+    color: #0f1f3d;
+    border: none;
+    padding: 18px 36px;
+    font-size: 17px;
+    font-weight: 800;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 8px 20px rgba(251,133,0,0.35);
+    transition: transform 0.15s ease;
+  }
+  .start-btn:active { transform: scale(0.97); }
+  .disclaimer {
+    font-size: 11px;
+    color: #6c839f;
+    margin-top: 18px;
+    line-height: 1.4;
+  }
+  .question-screen { display: none; }
+  .question-screen.active { display: block; }
+  .q-title {
+    font-size: 21px;
+    line-height: 1.4;
+    margin-bottom: 26px;
+    color: #fff;
+  }
+  .answers { display: flex; flex-direction: column; gap: 12px; }
+  .answer-btn {
+    background: rgba(255,255,255,0.06);
+    border: 2px solid rgba(255,255,255,0.12);
+    color: #fff;
+    padding: 18px 20px;
+    font-size: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+    font-weight: 500;
+  }
+  .answer-btn:hover {
+    background: rgba(255,183,3,0.12);
+    border-color: #ffb703;
+  }
+  .answer-btn.selected {
+    background: rgba(255,183,3,0.25);
+    border-color: #ffb703;
+  }
+  #loading-screen {
+    display: none;
+    text-align: center;
+    padding: 70px 28px;
+  }
+  .spinner {
+    width: 54px;
+    height: 54px;
+    border: 5px solid rgba(255,255,255,0.15);
+    border-top-color: #ffb703;
+    border-radius: 50%;
+    margin: 0 auto 26px auto;
+    animation: spin 0.9s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loading-text {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .loading-sub {
+    font-size: 13px;
+    color: #8fa8c9;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header-bar">CONFIDENTIAL &middot; 60-SECOND CHECK</div>
+
+  <div class="progress-wrap" id="progress-wrap">
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    <div class="progress-label" id="progress-label">Question 1 of 4</div>
+  </div>
+
+  <div class="screen" id="start-screen">
+    <div class="badge">FOR MILITARY FAMILIES</div>
+    <h1>Payday feels a week too late — every single month?</h1>
+    <p class="sub">If the last 10 days before payday feel like survival mode, you're not alone. Answer 4 quick questions to see what active-duty families are using instead of banks, payday lenders, or asking family for help.</p>
+    <button class="start-btn" onclick="startQuiz()">Start My 60-Second Check</button>
+    <p class="disclaimer">No credit check to answer. Takes under a minute.</p>
+  </div>
+
+  <div id="quiz-body">
+    <div class="screen question-screen" id="q1">
+      <div class="q-title">Which of these hits closest to home right now?</div>
+      <div class="answers">
+        <button class="answer-btn" onclick="selectAnswer(this, 1)">Bank account is running low before the next paycheck lands</button>
+        <button class="answer-btn" onclick="selectAnswer(this, 1)">A PCS move cost more than the reimbursement covered</button>
+        <button class="answer-btn" onclick="selectAnswer(this, 1)">Car trouble hit with zero savings cushion</button>
+        <button class="answer-btn" onclick="selectAnswer(this, 1)">Something unexpected just came up — bills, family, holidays</button>
+      </div>
+    </div>
+
+    <div class="screen question-screen" id="q2">
+      <div class="q-title">Have you already tried any of these — with no luck?</div>
+      <div class="answers">
+        <button class="answer-btn" onclick="selectAnswer(this, 2)">Applied to my bank/credit union and got denied or lowballed</button>
+        <button class="answer-btn" onclick="selectAnswer(this, 2)">Used a cash advance place near base and got stuck in fees</button>
+        <button class="answer-btn" onclick="selectAnswer(this, 2)">Asked command for emergency relief — too slow or denied</button>
+        <button class="answer-btn" onclick="selectAnswer(this, 2)">Haven't tried anything yet, just stressed about options</button>
+      </div>
+    </div>
+
+    <div class="screen question-screen" id="q3">
+      <div class="q-title">What's holding you back the most from getting help?</div>
+      <div class="answers">
+        <button class="answer-btn" onclick="selectAnswer(this, 3)">My credit score isn't great</button>
+        <button class="answer-btn" onclick="selectAnswer(this, 3)">I don't want a hard credit pull hurting me</button>
+        <button class="answer-btn" onclick="selectAnswer(this, 3)">I'm tired of feeling judged for asking</button>
+        <button class="answer-btn" onclick="selectAnswer(this, 3)">I just need it fast, not a long process</button>
+      </div>
+    </div>
+
+    <div class="screen question-screen" id="q4">
+      <div class="q-title">If there was an option built specifically for military pay cycles — how soon would you want funds?</div>
+      <div class="answers">
+        <button class="answer-btn" onclick="selectAnswer(this, 4)">As soon as possible — today if I could</button>
+        <button class="answer-btn" onclick="selectAnswer(this, 4)">Within the next 1-2 business days</button>
+        <button class="answer-btn" onclick="selectAnswer(this, 4)">Before my next payday hits</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="loading-screen">
+    <div class="spinner"></div>
+    <div class="loading-text">Finding your results...</div>
+    <div class="loading-sub">Matching your answers to military-specific options</div>
+  </div>
+</div>
+
+<script>
+  const totalQuestions = 4;
+  let currentQuestion = 0;
+
+  const OFFER_URL = "https://www.omnimilitaryloans.com/";
+
+  function startQuiz() {
+    document.getElementById('start-screen').style.display = 'none';
+    document.getElementById('progress-wrap').style.display = 'block';
+    currentQuestion = 1;
+    showQuestion(currentQuestion);
+  }
+
+  function showQuestion(num) {
+    document.querySelectorAll('.question-screen').forEach(el => el.classList.remove('active'));
+    const q = document.getElementById('q' + num);
+    if (q) q.classList.add('active');
+    updateProgress(num);
+  }
+
+  function updateProgress(num) {
+    const pct = (num / totalQuestions) * 100;
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-label').textContent = 'Question ' + num + ' of ' + totalQuestions;
+  }
+
+  function selectAnswer(btn, questionNum) {
+    const parent = btn.parentElement;
+    parent.querySelectorAll('.answer-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+
+    setTimeout(() => {
+      if (questionNum < totalQuestions) {
+        currentQuestion = questionNum + 1;
+        showQuestion(currentQuestion);
+      } else {
+        finishQuiz();
+      }
+    }, 350);
+  }
+
+  function finishQuiz() {
+    document.getElementById('progress-wrap').style.display = 'none';
+    document.getElementById('quiz-body').style.display = 'none';
+    document.getElementById('loading-screen').style.display = 'block';
+
+    setTimeout(() => {
+      window.location.href = OFFER_URL;
+    }, 2200);
+  }
+</script>
+
+</body>
+</html>
