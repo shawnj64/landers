@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Military Families Are Skipping the Bank — Quick Quiz</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #0b1e33 0%, #1a3a5c 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #fff;
+  }
+  .container {
+    width: 100%;
+    max-width: 520px;
+    background: #0f2743;
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    padding: 32px 26px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .container::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, rgba(255,196,0,0.25), transparent 70%);
+    border-radius: 50%;
+  }
+
+  /* Progress bar */
+  .progress-wrap {
+    width: 100%;
+    height: 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 26px;
+    display: none;
+  }
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ffc400, #ff9800);
+    border-radius: 10px;
+    transition: width 0.4s ease;
+  }
+
+  .screen { display: none; animation: fadeIn 0.4s ease; }
+  .screen.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(255,196,0,0.15);
+    color: #ffc400;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-size: 24px;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+  .sub {
+    font-size: 15px;
+    color: #b8cbe0;
+    margin-bottom: 26px;
+    line-height: 1.5;
+  }
+
+  .question-num {
+    font-size: 13px;
+    color: #ffc400;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  .question-text {
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 22px;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .option-btn {
+    background: #163b60;
+    border: 2px solid rgba(255,255,255,0.08);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 18px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .option-btn:hover {
+    background: #1e4d7a;
+    border-color: #ffc400;
+    transform: translateX(4px);
+  }
+  .option-btn:active { transform: scale(0.98); }
+  .option-btn .arrow {
+    color: #ffc400;
+    font-size: 20px;
+    margin-left: 12px;
+  }
+
+  .start-btn {
+    display: block;
+    width: 100%;
+    background: linear-gradient(90deg, #ffc400, #ff9800);
+    color: #0b1e33;
+    font-size: 18px;
+    font-weight: 800;
+    padding: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 8px 20px rgba(255,196,0,0.25);
+  }
+  .start-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(255,196,0,0.35); }
+
+  .fine-print {
+    font-size: 12px;
+    color: #6f8bab;
+    text-align: center;
+    margin-top: 18px;
+    line-height: 1.5;
+  }
+
+  /* Loader */
+  .loader-screen {
+    text-align: center;
+    padding: 30px 0;
+  }
+  .spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(255,196,0,0.15);
+    border-top: 5px solid #ffc400;
+    border-radius: 50%;
+    margin: 0 auto 24px;
+    animation: spin 0.9s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loader-text {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .loader-sub {
+    font-size: 14px;
+    color: #b8cbe0;
+  }
+  .dots span {
+    animation: blink 1.4s infinite;
+    animation-fill-mode: both;
+  }
+  .dots span:nth-child(2) { animation-delay: 0.2s; }
+  .dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes blink { 0%, 80%, 100% { opacity: 0; } 40% { opacity: 1; } }
+
+  .checklist {
+    text-align: left;
+    max-width: 320px;
+    margin: 24px auto 0;
+  }
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #cfe0f0;
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+  }
+  .check-item:nth-child(1) { animation-delay: 0.2s; }
+  .check-item:nth-child(2) { animation-delay: 1s; }
+  .check-item:nth-child(3) { animation-delay: 1.8s; }
+  .check-item .mark {
+    width: 20px; height: 20px;
+    background: #ffc400;
+    color: #0b1e33;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 400px) {
+    h1 { font-size: 21px; }
+    .question-text { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="progress-wrap" id="progressWrap">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- INTRO SCREEN -->
+  <div class="screen active" id="screen-intro">
+    <span class="badge">Military Families Only</span>
+    <h1>Why do so many military families quietly skip Navy Fed and USAA for THIS instead?</h1>
+    <p class="sub">There's a lesser-known approval method built around military income and rank — not just your credit score. Answer 4 quick questions and we'll show you what it is.</p>
+    <button class="start-btn" onclick="startQuiz()">Show Me The Method →</button>
+    <p class="fine-print">Takes less than 30 seconds. No credit pull to view your results.</p>
+  </div>
+
+  <!-- QUESTION 1 -->
+  <div class="screen" id="screen-q1">
+    <div class="question-num">Question 1 of 4</div>
+    <div class="question-text">What's your current military status?</div>
+    <div class="options">
+      <button class="option-btn" onclick="answer(1)">Active Duty <span class="arrow">›</span></button>
+      <button class="option-btn" onclick="answer(1)">Veteran <span class="arrow">›</span></button>
+      <button class="option-btn" onclick="answer(1)">National Guard / Reserve <span class="arrow">›</span></button>
+      <button class="option-btn" onclick="answer(1)">Military Spouse / Family <span class="arrow">›</span></button>
+    </div>
+  </div>
+
+  <!-- QUESTION 2 -->
+  <div class="screen" id="screen-q2">
+    <div class="question-num">Question 2 of 4</div>
+    <div class="question-text">What's the real reason you're looking into this right now?</div>
+    <div class="options">
+      <button class="option-btn" onclick="answer(2)">PCS move costs piling up <span class="arrow">›</span></button>
+      <button class="option-btn" onclick="answer(2)">Bills due before next payday <span class="arrow">›</span></button>
+      <button class="option-btn" onclick="answer(2)">Unexpected car or home repair <span class="arrow">›</span></button>
+      <button class="option-btn" onclick="answer(2)">Just curious how this works <span class="arrow">›</span></button>
+    </div>
+  </div>
+
+  <!-- QUESTION 3 -->
+  <div class="screen" id="screen-q3">
+    <div class="question-num">Question 3 of 4</div>
+    <div class="question-text">Have you ever been turned down (or lowballed) by a traditional bank or credit union?</div>
+    <div class="options">
+      <button class="option-btn" onclick="answer(3)">Yes, more than once <span class="arrow">›</span></button>
+      <button class="option-btn" onclick="answer(3)">Yes, one time <span class="arrow">›</span></button>
+      <button class="option-btn" onclick="answer(3)">No, but I expect to be <span class="arrow">›</span></button>
+      <button class="option-btn" onclick="answer(3)">Not sure / never applied <span class="arrow">›</span></button>
+    </div>
+  </div>
+
+  <!-- QUESTION 4 -->
+  <div class="screen" id="screen-q4">
+    <div class="question-num">Question 4 of 4</div>
+    <div class="question-text">If there was a faster, credit-friendlier option built specifically for military — would you want to see it?</div>
+    <div class="options">
+      <button class="option-btn" onclick="answer(4)">Yes, show me now <span class="arrow">›</span></button>
+      <button class="option-btn" onclick="answer(4)">Yes, if it's legit <span class="arrow">›</span></button>
+      <button class="option-btn" onclick="answer(4)">Absolutely, this is why I'm here <span class="arrow">›</span></button>
+    </div>
+  </div>
+
+  <!-- LOADER -->
+  <div class="screen" id="screen-loader">
+    <div class="loader-screen">
+      <div class="spinner"></div>
+      <div class="loader-text">Finding your results<span class="dots"><span>.</span><span>.</span><span>.</span></span></div>
+      <div class="loader-sub">Matching your answers to the military-specific approval method</div>
+      <div class="checklist">
+        <div class="check-item"><span class="mark">✓</span> Reviewing military income eligibility</div>
+        <div class="check-item"><span class="mark">✓</span> Checking rank-based approval options</div>
+        <div class="check-item"><span class="mark">✓</span> Unlocking your personalized match</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const OFFER_URL = "https://www.omnimilitaryloans.com/";
+
+  const totalSteps = 4;
+  let currentStep = 0;
+
+  function showScreen(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+
+  function updateProgress(step) {
+    const wrap = document.getElementById('progressWrap');
+    wrap.style.display = 'block';
+    const pct = (step / totalSteps) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  }
+
+  function startQuiz() {
+    currentStep = 0;
+    updateProgress(0);
+    showScreen('screen-q1');
+  }
+
+  function answer(questionNumber) {
+    currentStep = questionNumber;
+    updateProgress(currentStep);
+
+    setTimeout(() => {
+      if (questionNumber < totalSteps) {
+        showScreen('screen-q' + (questionNumber + 1));
+      } else {
+        showScreen('screen-loader');
+        finishQuiz();
+      }
+    }, 250);
+  }
+
+  function finishQuiz() {
+    setTimeout(() => {
+      window.location.href = OFFER_URL;
+    }, 2800);
+  }
+</script>
+
+</body>
+</html>
