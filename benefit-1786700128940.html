@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Quiet Career Switch: How a $50 Test Changed Where I'd Be in a Year</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #faf8f5;
+    color: #2b2b2b;
+    line-height: 1.7;
+  }
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  header.hero {
+    background: #1c2b3a;
+    color: #fff;
+    padding: 50px 20px 40px;
+    text-align: center;
+  }
+  header.hero .container { max-width: 760px; }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    color: #9fd8c8;
+    font-family: Arial, sans-serif;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-size: 34px;
+    line-height: 1.3;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+  .subhead {
+    font-size: 19px;
+    color: #d9dfe4;
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .byline {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #a9b6c0;
+    margin-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 16px;
+    display: inline-block;
+  }
+  main {
+    padding: 40px 0 20px;
+  }
+  p {
+    font-size: 18px;
+    margin-bottom: 22px;
+    color: #333;
+  }
+  h2 {
+    font-size: 26px;
+    margin: 40px 0 18px;
+    color: #1c2b3a;
+    line-height: 1.35;
+  }
+  .lede {
+    font-size: 21px;
+    color: #1c2b3a;
+    font-weight: 500;
+  }
+  .pull-quote {
+    border-left: 4px solid #2f8f6e;
+    background: #eef6f2;
+    padding: 18px 22px;
+    font-style: italic;
+    font-size: 19px;
+    margin: 30px 0;
+    color: #1c2b3a;
+  }
+  .divider {
+    text-align: center;
+    color: #b8b0a4;
+    margin: 36px 0;
+    font-size: 20px;
+    letter-spacing: 10px;
+  }
+  .what-is-it {
+    background: #fff;
+    border: 1px solid #e5ddd0;
+    border-radius: 10px;
+    padding: 30px 28px;
+    margin: 30px 0;
+  }
+  .what-is-it h2 { margin-top: 0; }
+  .what-is-it ul {
+    margin: 18px 0 6px 20px;
+  }
+  .what-is-it li {
+    font-size: 17px;
+    margin-bottom: 12px;
+    color: #333;
+  }
+  .results-box {
+    background: #1c2b3a;
+    color: #fff;
+    border-radius: 10px;
+    padding: 32px 28px;
+    margin: 36px 0;
+  }
+  .results-box h2 { color: #fff; margin-top: 0; }
+  .results-box p { color: #dbe3e8; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 22px;
+  }
+  .stat {
+    background: rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 18px 14px;
+    text-align: center;
+  }
+  .stat .num {
+    font-family: Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #9fd8c8;
+    display: block;
+  }
+  .stat .label {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #cfd8de;
+    margin-top: 4px;
+  }
+  .testimonials {
+    margin: 40px 0;
+  }
+  .testimonial {
+    background: #fff;
+    border: 1px solid #e5ddd0;
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 18px;
+  }
+  .testimonial p {
+    font-size: 17px;
+    font-style: italic;
+    margin-bottom: 10px;
+    color: #2b2b2b;
+  }
+  .testimonial .author {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #2f8f6e;
+    font-weight: 700;
+    font-style: normal;
+  }
+  .stars {
+    color: #e8b93a;
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  .cta-section {
+    text-align: center;
+    background: #eef6f2;
+    border-radius: 12px;
+    padding: 40px 24px;
+    margin: 40px 0;
+  }
+  .cta-section h2 {
+    text-align: center;
+    margin-top: 0;
+  }
+  .cta-button {
+    display: inline-block;
+    background: #2f8f6e;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 18px 42px;
+    border-radius: 50px;
+    margin-top: 16px;
+    box-shadow: 0 8px 20px rgba(47,143,110,0.35);
+    transition: transform 0.15s ease;
+  }
+  .cta-button:hover { transform: translateY(-2px); }
+  .cta-sub {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #557;
+    margin-top: 14px;
+  }
+  .urgency-strip {
+    background: #fff3e0;
+    border: 1px solid #f0c987;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #8a5a1c;
+    text-align: center;
+    margin-bottom: 26px;
+  }
+  footer {
+    padding: 30px 20px 50px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #8a8a8a;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  footer a { color: #8a8a8a; }
+  @media (max-width: 480px) {
+    h1 { font-size: 27px; }
+    .subhead { font-size: 16px; }
+    .lede { font-size: 19px; }
+    p { font-size: 16.5px; }
+    .stat-grid { grid-template-columns: 1fr; }
+    .cta-button { font-size: 17px; padding: 16px 30px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow">Career Change Diaries</div>
+    <h1>She Tested a New Career for $50 Before Quitting Her Job — Here's What Her Life Looks Like Now</h1>
+    <p class="subhead">No bootcamp debt. No CS degree. Just a low-risk way to find out if a tech career was actually possible for her — before betting everything on it.</p>
+    <div class="byline">By Marissa Colton &nbsp;•&nbsp; Contributor &nbsp;•&nbsp; Updated This Week</div>
+  </div>
+</header>
+
+<main class="container">
+
+  <p class="lede">If you've ever sat at your desk doing the math — how many more years until you can afford to leave — this story is going to feel uncomfortably familiar.</p>
+
+  <p>That was Dana, 31, a shift supervisor at a regional retail chain, six months ago. Not miserable, exactly. Just stuck. Same schedule, same ceiling, watching people two rungs above her make barely more money for a lot more stress. She'd think about "doing something different" the way most people think about going to the gym — a nice idea for a future version of herself that never quite arrived.</p>
+
+  <div class="divider">⸻</div>
+
+  <h2>The Before: Stuck, Tired, and Talked Herself Out of It Twice</h2>
+
+  <p>Dana had tried to make a change before. Twice, actually. The first time, she opened a free coding tutorial site, made it through two lessons, and closed the tab when work got busy. It never got reopened.</p>
+
+  <p>The second time was more serious — she looked into a coding bootcamp. Fifteen thousand dollars. Full-time for three months. She didn't have the savings to cover rent without an income, let alone tuition. She closed that browser tab too, but this one stung more, because for a second she'd let herself believe it was possible.</p>
+
+  <p>"I wasn't lazy," she told me. "I just didn't trust that it would actually go anywhere. Every option was either too vague to commit to, or too expensive to risk being wrong about."</p>
+
+  <div class="pull-quote">"I didn't need someone to tell me I *could* learn to code. I needed a way to find out for fifty dollars instead of finding out for fifteen thousand."</div>
+
+  <h2>The Turning Point: A Different Kind of Test</h2>
+
+  <p>What changed wasn't motivation — Dana says she never lacked that. What changed was finding a way to test the entire idea of a tech career on a small, low-stakes scale before making any real commitment.</p>
+
+  <p>A friend who'd made a similar switch pointed her toward a structured, self-paced online learning platform — the kind built around actual guided tracks and real projects, not just a pile of disconnected videos. The starting cost was close to what she'd spend on takeout in a week, not a year of savings. She figured she had nothing to lose by trying it for one month.</p>
+
+  <p>That one month became the test that changed everything.</p>
+
+  <div class="divider">⸻</div>
+
+  <div class="what-is-it">
+    <h2>So What Actually Is This "$50 Test"?</h2>
+    <p>It's not a bootcamp. It's not a random YouTube playlist. It's a structured, self-paced online platform designed specifically for people starting from zero — no CS degree, no technical background, no idea where to even begin.</p>
+    <p>Here's what made the difference for Dana, and what tends to make the difference for people in her situation generally:</p>
+    <ul>
+      <li><strong>A real curriculum, not a scavenger hunt.</strong> Guided tracks walk you from absolute beginner to job-ready skills in a specific order — no more guessing which tutorial to watch next.</li>
+      <li><strong>Built-in projects for a real portfolio.</strong> You're not just watching — you're building things you can actually show an employer.</li>
+      <li><strong>A low-risk entry point.</strong> Instead of a five-figure commitment, you can test the entire experience for less than the cost of one dinner out.</li>
+      <li><strong>Self-paced structure.</strong> Built for people working full-time jobs, not people who can drop everything for three months.</li>
+      <li><strong>A credential to show for it.</strong> A recognized completion track that signals to hiring managers you followed a real, structured path — not just "I watched some videos."</li>
+    </ul>
+    <p>It's less "learn to code" and more "find out, cheaply and quickly, whether this path is actually yours" — before you commit any real time or money to it.</p>
+  </div>
+
+  <div class="divider">⸻</div>
+
+  <h2>The After: What Changed for Dana</h2>
+
+  <p>Dana didn't quit her job the week she signed up. She kept working her regular shifts and used early mornings before work and a couple of hours most evenings. Within the first month, something shifted that surprised her more than the coding itself:</p>
+
+  <p>She actually finished things. For the first time, the structure kept her moving instead of losing steam by day three.</p>
+
+  <div class="results-box">
+    <h2>Where Things Stand Now</h2>
+    <p>Six months into using the guided tracks consistently, here's what changed for Dana:</p>
+    <div class="stat-grid">
+      <div class="stat">
+        <span class="num">4</span>
+        <span class="label">Portfolio projects built and ready to show</span>
+      </div>
+      <div class="stat">
+        <span class="num">~6 hrs</span>
+        <span class="label">Per week — fit around her existing job</span>
+      </div>
+      <div class="stat">
+        <span class="num">1</span>
+        <span class="label">Completed track credential added to her resume</span>
+      </div>
+      <div class="stat">
+        <span class="num">$50</span>
+        <span class="label">What it cost her to find out this path was real</span>
+      </div>
+    </div>
+    <p style="margin-top:20px;">She's now applying to entry-level developer and support roles with an actual portfolio behind her — something no amount of "someday" motivation ever gave her before.</p>
+  </div>
+
+  <div class="divider">⸻</div>
+
+  <h2>She's Not the Only One</h2>
+
+  <div class="testimonials">
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"I'd started and stopped learning to code three separate times. The difference this time was having an actual path to follow instead of guessing what to learn next. I finally have projects I'm proud of."</p>
+      <div class="author">— Priya, 29</div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"I was terrified of wasting money on something that wouldn't go anywhere. Starting small let me prove to myself it was worth it before I committed more time and money."</p>
+      <div class="author">— Marcus, 34</div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"I work full-time and have two kids. I genuinely didn't think I had time for this. The self-paced structure is the only reason I stuck with it past week one."</p>
+      <div class="author">— Renee, 37</div>
+    </div>
+  </div>
+
+  <div class="divider">⸻</div>
+
+  <div class="cta-section">
+    <h2>Curious What Six Months From Now Could Look Like?</h2>
+    <p>You don't need to quit your job, drain your savings, or commit to anything big today. The entire point of this approach is finding out — cheaply and quickly — whether this path is actually yours.</p>
+    <div class="urgency-strip">⏳ Entry-level tech hiring is active right now — the people testing this path today are the ones with a portfolio ready by the time the next hiring wave hits.</div>
+    <a href="https://teamtreehouse.com/?via=shawn" class="cta-button">Start Your Low-Risk Test Today →</a>
+    <div class="cta-sub">Self-paced. Beginner-friendly. No CS degree required.</div>
+  </div>
+
+</main>
+
+<footer>
+  <p>This article is for informational purposes and reflects individual experiences, which will vary. Results described are not guaranteed or typical for all users. Names may have been changed to protect privacy. This page contains an affiliate link; we may receive compensation if you sign up through the link above, at no additional cost to you. Any career or income outcomes mentioned are illustrative and depend on individual effort, background, and circumstances. Please review the provider's official terms, pricing, and program details directly on their website before enrolling.</p>
+</footer>
+
+</body>
+</html>
