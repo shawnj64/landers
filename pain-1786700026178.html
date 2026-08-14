@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why So Many People Are Quietly Leaving Their Jobs This Year — Without Quitting First</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #f7f5f2;
+    color: #2b2b2b;
+    line-height: 1.7;
+  }
+  .wrapper { max-width: 720px; margin: 0 auto; background: #fff; }
+  .top-bar {
+    background: #1a2b3c;
+    color: #cfd8e3;
+    text-align: center;
+    padding: 8px 12px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+  .content { padding: 30px 24px 10px; }
+  h1 {
+    font-size: 30px;
+    line-height: 1.3;
+    color: #1a1a1a;
+    margin-bottom: 14px;
+    font-weight: 800;
+  }
+  .subhead {
+    font-size: 18px;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 20px;
+    font-weight: normal;
+  }
+  .byline {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #888;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+  }
+  .byline strong { color: #444; }
+  p { font-size: 18px; margin-bottom: 18px; color: #333; }
+  .drop-cap:first-letter {
+    font-size: 54px;
+    float: left;
+    line-height: 44px;
+    padding-right: 8px;
+    padding-top: 4px;
+    font-weight: bold;
+    color: #1a2b3c;
+  }
+  .pull-quote {
+    font-size: 21px;
+    font-style: italic;
+    color: #1a2b3c;
+    border-left: 4px solid #c0392b;
+    padding: 6px 20px;
+    margin: 26px 0;
+    background: #faf4f2;
+  }
+  h2 {
+    font-size: 24px;
+    margin: 34px 0 16px;
+    color: #1a2b3c;
+    font-weight: 800;
+  }
+  .divider {
+    text-align: center;
+    color: #c0392b;
+    font-size: 20px;
+    letter-spacing: 8px;
+    margin: 30px 0;
+  }
+  .highlight-box {
+    background: #eef2f6;
+    border-radius: 8px;
+    padding: 22px;
+    margin: 22px 0;
+    font-size: 17px;
+  }
+  .highlight-box ul { margin-left: 20px; margin-top: 10px; }
+  .highlight-box li { margin-bottom: 8px; }
+  .results-list {
+    list-style: none;
+    margin: 20px 0;
+  }
+  .results-list li {
+    font-size: 18px;
+    padding: 12px 0 12px 38px;
+    position: relative;
+    border-bottom: 1px solid #eee;
+  }
+  .results-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    color: #2e7d32;
+    font-weight: bold;
+    font-size: 20px;
+    background: #e8f5e9;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 26px;
+  }
+  .testimonial {
+    background: #fbfaf8;
+    border: 1px solid #e5e2dc;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 18px 0;
+    font-size: 17px;
+    font-style: italic;
+    position: relative;
+  }
+  .testimonial .stars {
+    color: #f4b400;
+    font-style: normal;
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  .testimonial .name {
+    display: block;
+    margin-top: 12px;
+    font-style: normal;
+    font-weight: bold;
+    color: #1a2b3c;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
+  .cta-section {
+    text-align: center;
+    background: #1a2b3c;
+    color: #fff;
+    padding: 34px 20px;
+    margin: 36px 0 0;
+  }
+  .cta-section h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-family: Arial, sans-serif;
+  }
+  .cta-section p {
+    color: #cfd8e3;
+    font-size: 16px;
+    margin-bottom: 22px;
+    font-family: Arial, sans-serif;
+  }
+  .cta-button {
+    display: inline-block;
+    background: #c0392b;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 19px;
+    padding: 18px 38px;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(192,57,43,0.5);
+    animation: pulse 1.8s infinite;
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+    100% { transform: scale(1); }
+  }
+  .cta-sub {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #a9b6c4;
+    margin-top: 14px;
+  }
+  .urgency-bar {
+    background: #fdecea;
+    border: 1px solid #f5c6cb;
+    color: #922b21;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    text-align: center;
+    padding: 12px;
+    margin: 30px 0 0;
+    font-weight: bold;
+  }
+  .disclaimer {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    color: #999;
+    padding: 24px;
+    text-align: center;
+    line-height: 1.6;
+    border-top: 1px solid #eee;
+    margin-top: 30px;
+  }
+  @media (max-width: 480px) {
+    h1 { font-size: 24px; }
+    .subhead { font-size: 16px; }
+    p, .results-list li, .testimonial { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">CAREER &amp; LIFESTYLE — READER SUBMITTED STORY</div>
+
+<div class="wrapper">
+  <div class="content">
+    <h1>The Sunday Night Dread Isn't Normal. Here's What One Burned-Out Worker Did Instead of Sending Another Job Application Into the Void.</h1>
+    <p class="subhead">She wasn't lazy, unqualified, or unlucky. She was just using the wrong map.</p>
+
+    <div class="byline">
+      By <strong>M. Alvarez</strong>, Contributing Writer &nbsp;|&nbsp; Updated This Week
+    </div>
+
+    <p class="drop-cap">If you've ever sat in your car in the parking lot for an extra five minutes before walking into a job you've outgrown, you already know the feeling this story is about. It's not burnout, exactly. It's something quieter and heavier — the sense that you did everything "right" and still ended up stuck, watching the clock, watching your coworkers get let go one by one, wondering if you're next.</p>
+
+    <p>That feeling has a name now. People are calling it the "ceiling." Not a bad boss. Not a bad year. A hard, invisible limit on what your current path can ever pay you, no matter how many extra shifts you pick up or how long you stay loyal.</p>
+
+    <p>This is the story of how one person noticed that ceiling — and quietly did something about it, without quitting her job, draining her savings, or going back to school for four more years.</p>
+
+    <div class="divider">• • •</div>
+
+    <h2>The Before: "I Wasn't Failing. I Was Just Standing Still."</h2>
+
+    <p>For almost six years, a woman we'll call Dana worked in retail management. Good reviews. Reliable. The kind of employee a store depends on. But her paycheck barely moved, her knees ached from twelve-hour shifts, and every round of layoffs at corporate made her stomach drop a little more.</p>
+
+    <p>"I watched people who'd been there longer than me get cut over a video call," she said. "That was the moment I realized loyalty doesn't protect you. Nothing about my job was actually safe — it just felt safe because it was familiar."</p>
+
+    <div class="pull-quote">"I kept scrolling past people my age working from a laptop on a Tuesday afternoon, and I felt this ache. Not jealousy exactly. More like — why wasn't that ever presented to me as an option?"</div>
+
+    <p>She tried to fix it the way most people do. A free coding tutorial on YouTube, abandoned around hour one when the instructor started assuming things she didn't know. A few lessons on a free app before life got busy and the streak broke. A course bought during a sale that she opened twice and never finished.</p>
+
+    <p>"I told myself I'd start again on Monday. Then it was next Monday. Then it was embarrassing to even think about." She looked into a coding bootcamp once — the kind that costs as much as a used car and asks you to quit your job for three months. "I closed the tab so fast. Who has $15,000 lying around, or three months without a paycheck? Not me. Not anyone I know."</p>
+
+    <p>So she did what most of us do. She stayed. She scrolled. She told herself maybe she just wasn't the "tech person" type — too old to start over, not smart enough, missing whatever head start those other people clearly had.</p>
+
+    <div class="divider">• • •</div>
+
+    <h2>The Turning Point</h2>
+
+    <p>What actually changed wasn't a burst of motivation or a New Year's resolution. It was a conversation with someone in an online career-change group who said something Dana couldn't stop thinking about:</p>
+
+    <div class="pull-quote">"You don't need a computer science degree. You need a structure. That's it. That's the whole secret nobody tells you."</div>
+
+    <p>The problem, Dana realized, was never that she lacked intelligence or discipline. It was that every free resource she'd tried was scattered — a video here, an article there, no real order, no one checking whether she actually understood anything before moving on. She wasn't failing at learning to code. She was failing at following directions that didn't exist.</p>
+
+    <p>So instead of another random tutorial, she looked for something different: a guided, structured path — one built specifically for people starting with zero experience, that told her exactly what to do next, in order, with real projects to prove she could actually build something by the end of it.</p>
+
+    <div class="divider">• • •</div>
+
+    <h2>What It Actually Is</h2>
+
+    <p>What she found wasn't a bootcamp, and it wasn't a pile of free videos either. It sits in the middle — a step-by-step online learning path built around structured tracks, not random lessons. Each track walks a total beginner from "I've never written a line of code" through real, hands-on projects, in an order that actually builds on itself instead of assuming you already know things.</p>
+
+    <div class="highlight-box">
+      <strong>What made it different from everything she'd tried before:</strong>
+      <ul>
+        <li>A clear curriculum — no more guessing what to learn next or in what order</li>
+        <li>Bite-sized lessons that fit into a lunch break or a commute, not a 3-hour time block she didn't have</li>
+        <li>Actual projects to build a portfolio, not just quizzes and checkmarks</li>
+        <li>A fraction of the cost of a traditional bootcamp — no five-figure risk, no quitting her job</li>
+        <li>A track record of people with zero tech background completing it and changing careers</li>
+      </ul>
+    </div>
+
+    <p>No lecture halls. No student debt. No pretending to already understand jargon nobody explained to you. Just a path, in order, designed for someone starting exactly where she was starting: at zero, at night, exhausted, with limited time and a lot riding on not wasting it again.</p>
+
+    <div class="divider">• • •</div>
+
+    <h2>The Results</h2>
+
+    <p>Dana gave herself permission to go slowly — 30 to 45 minutes most evenings, sometimes skipping a day entirely. No pressure, no all-or-nothing streak to protect. Just consistent, structured progress.</p>
+
+    <ul class="results-list">
+      <li>Finished her first real project (a working website) in under three weeks</li>
+      <li>Built a small portfolio of projects she could actually show someone</li>
+      <li>Went from "I don't understand any of this" to comfortably reading and writing basic code in about two months</li>
+      <li>Stopped feeling behind — for the first time, she had a concrete next step instead of vague anxiety</li>
+      <li>Started applying to entry-level tech roles with something real to point to</li>
+    </ul>
+
+    <p>"I'm not saying it happened overnight," she said. "But for the first time in years, I wasn't just hoping things would get better. I was actually doing something that was moving me forward, in order, one lesson at a time."</p>
+
+    <div class="divider">• • •</div>
+
+    <h2>Others Who Found the Same Path Out</h2>
+
+    <div class="testimonial">
+      <span class="stars">★★★★★</span>
+      "I'm 34 and I genuinely thought it was too late for me. Turns out I just needed someone to tell me what to do first, second, third. I finally feel like I have a direction instead of just anxiety."
+      <span class="name">— Melissa, 34</span>
+    </div>
+
+    <div class="testimonial">
+      <span class="stars">★★★★★</span>
+      "I'd started and quit 'learning to code' probably four separate times. The difference this time was structure. I wasn't guessing anymore. I just showed up and followed the path."
+      <span class="name">— Derrick, 29</span>
+    </div>
+
+    <div class="testimonial">
+      <span class="stars">★★★★★</span>
+      "After my department got restructured twice in one year, I stopped trusting that any job was 'safe.' Learning this on the side, at my own pace, was the first thing that made me feel like I had some control back."
+      <span class="name">— Priya, 37</span>
+    </div>
+
+    <div class="urgency-bar">
+      ⏳ With more layoffs hitting industries every month, waiting another "Monday" is the most expensive option on the table.
+    </div>
+
+    <div class="cta-section">
+      <h3>See the Exact Path She Followed</h3>
+      <p>No $15,000 bootcamp. No CS degree. Just a structured way to finally start — and actually finish.</p>
+      <a class="cta-button" href="https://teamtreehouse.com/?via=shawn" target="_blank" rel="noopener">Show Me The Structured Path →</a>
+      <div class="cta-sub">Takes less time to start than it took to read this article.</div>
+    </div>
+
+  </div>
+
+  <div class="disclaimer">
+    This article features a composite/illustrative account based on common experiences reported by career changers and is intended for informational and storytelling purposes. Names have been changed and some details are representative rather than individually verified. Results vary based on individual effort, time invested, and circumstances; no specific income or employment outcome is guaranteed. This page may contain an affiliate link, meaning we may earn a commission if you sign up through the link provided, at no additional cost to you. Always do your own research before making a purchasing or educational decision.
+  </div>
+</div>
+
+</body>
+</html>
